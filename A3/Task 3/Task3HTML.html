@@ -1,0 +1,28 @@
+<html>
+	<body>
+		<div>
+			<ul id="theList">
+			
+			</ul>
+		</div>
+		<script>
+			var slowObject = '{' +
+								'"slowanimal" : [' + 
+									'{"Category":"Koala Bear", "Speed" : "Very Slow"},' +
+									'{"Category":"Sloth", "Speed" : "Extremely Slow"},'  +
+									'{"Category":"Giant Tortose", "Speed" : "Really Slow"}' +
+								']' +
+							'}' ; 
+			
+			var animalObjects = JSON.parse(slowObject);
+			var ul = document.getElementById("theList");
+			for(i in animalObjects.slowanimal) {
+				
+				var testLi = document.createElement("li");
+				var x = document.createTextNode(animalObjects.slowanimal[i].Category + " is " + animalObjects.slowanimal[i].Speed);
+				testLi.appendChild(x);
+				ul.appendChild(testLi);
+			}
+		</script>
+	</body>
+</html>

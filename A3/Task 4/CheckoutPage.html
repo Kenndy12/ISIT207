@@ -1,0 +1,126 @@
+
+<!-- Kenndy 6742014-->
+<html>
+<head>
+	<link rel="stylesheet" href="task1css.css">
+	<link rel="stylesheet" href="css2.css">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+	<body>
+		<table class="layoutTableMain">
+			<tr>
+				<td colspan="5">
+					<div class="headingDiv">
+						<a href="mainpage.html" class="noUnderline"><h1>Kenndy's Gift Shop</h1></a>
+					</div>
+				</td>
+			</tr>
+
+			<tr class="spacing2">
+				<td> </td>
+			</tr>
+
+			<tr class="categorySelection">
+				<td colspan="5">
+					<div class="navBar">
+						<nav>
+							<a href="StationaryPage.HTML" class="noUnderline"> STATIONARIES  </a>
+							<a href="StuffedAnimalsPage.HTML" class="noUnderline"> STUFFEDANIMALS </a>
+							<a href="AccessoriesPage.HTML" class="noUnderline"> ACCESSORIES </a>
+							<a href="FlowersPage.HTML" class="noUnderline"> FLOWERS </a>
+							<a href="MugsPage.HTML" class="noUnderline"> MUGS </a>
+						</nav>
+					</div>
+				</td>
+			</tr>
+
+			<tr class="spacing3">
+				<td colspan="5"> </td>
+			</tr>
+
+			<tr class="checkoutTr">
+				<td colspan="5 rowspan="3">
+					<div class="checkoutContainer">
+						<div class="checkoutForm">
+							<h2>Enter your personal information</h2>
+							<form class="checkoutFormElement">
+								<label>First name  </label>
+								<input type="text" id="fname" title="Your name won't be shared with anyone else :)"><br><br>
+								<label>Last name  </label>
+								<input type="text" id="lname" title="Your name won't be shared with anyone else :)"><br><br>
+								<label>Address </label>
+								<input type="text" id="address" title="We only ask your address for delivery purposes"><br><br>
+								<label>Country </label>
+								<select id="countrySelector" name="countrylist" class="countrySelect" title="Currently we only operate near ASEAN grounds">
+									<option value="Sg">Singapore</option>
+									<option value="Ind">Indonesia</option>
+									<option value="My">Malaysia</option>
+									<option value="Brun">Brunei</option>
+									<option value="Camb">Cambodia</option>
+									<option value="Viet">Vietnam</option>
+									<option value="Thai">Thailand</option>
+								</select>
+								<label class="zipcodeLabel">Zipcode </label>
+								<input type="text" id="zipcode" class="zipcodeInput" title="Do note that wrong zipcodes may result in items not being delivered"><br><br>
+								<div class="dateInput">
+									<label>When would you like your item to arrive</label>
+									<input type="date" id="itemArrivalDate"> <br><br>
+									<button type="button" id="submitForm"> Submit </button>
+								</div>
+
+							</form>
+						</div>
+					</div>
+				</td>
+			</tr>
+
+			<tr class="spacing3">
+				<td colspan="5"> </td>
+			</tr>
+			
+			<tr>
+				<td>
+					<div style="margin:auto;" id="progressbar"></div>
+				</td>
+			</tr>
+			
+			<tr class="spacing3">
+				<td colspan="5"> </td>
+			</tr>
+
+			<tr>
+				<td class="footerTD" colspan="5">
+					<footer>
+						<div class="footerDiv1">
+							<h6> ABOUT US </h6>
+							<span id="aboutustext">
+								We are a gift shop based in Singapore, this is not a real gift shop, it's made for an assignment
+								now im just typing random stuff to make it appear more substantial.
+							</span>
+						</div>
+
+						<div class="footerDiv2">
+							<a href="https://www.facebook.com/profile.php?id=100009964356227">
+								<img src="Images/facebook.png" class="facebookIcon">
+							</a>
+							<a href="https://www.instagram.com/kenndy.12/">
+								<img src="Images/instagram.png" class="instagramIcon">
+							</a>
+							<a href="https://twitter.com/Justkenndy">
+								<img src="Images/twitter.png" class="twitterIcon">
+							</a>
+							<a href="mailto:justkenndy92@gmail.com">
+								<img src="Images/email.png" class="emailIcon">
+							</a>
+						</div>
+					</footer>
+				</td>
+			</tr>
+
+		</table>
+		<script type="text/javascript" src="Task2.js"></script>
+		<script type="text/javascript" src="JqueryUI.js"></script>
+	</body>
+</html>

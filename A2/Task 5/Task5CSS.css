@@ -1,0 +1,45 @@
+
+/* Kenndy 6742014 */
+table {
+	
+	width:600px;
+	height:400px;
+}
+
+table,tr,td {
+
+	border : 1px solid black;
+	border-collapse : collapse;
+	text-align : center;
+	font-size: 20px;
+}
+
+#resizableDiv {
+    width: 100px;
+    border: 1px solid black;
+    height: 100px;
+	display:inline-block;
+}
+
+.selectableUL {
+	
+	list-style-type:none;
+	text-align : center;		
+	padding: 0;	
+}
+
+.selectableUL .ui-selecting {
+	
+	background-color:yellow;
+}
+
+.selectableUL .ui-selected {
+	
+	background-color:yellow;
+}
+
+.liClass {
+	
+	border: 1px solid black;
+	border-collapse: collapse;
+}

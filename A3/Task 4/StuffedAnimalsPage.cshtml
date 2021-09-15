@@ -1,0 +1,201 @@
+﻿@using WebMatrix.Data
+
+@{
+
+    var productName = Request.Form["shoppingStuff"];
+    var quantity = Request.Form["quantity"];
+    Console.WriteLine(productName);
+    int price = 0;
+    if(productName == "racoon") {
+        price = 10;
+        productName = "Racoon Toy";
+    }
+    else if (productName == "babyYoda") {
+        price = 15;
+        productName = "Baby Yoda";
+    }
+    var db = Database.Open("thecart");
+    if (IsPost) {
+
+        Console.WriteLine("test");
+        var insertQuery = "INSERT INTO cart(product,quantity,price)" + "VALUES(@0,@1,@2)";
+        db.Execute(insertQuery, productName, quantity, price);
+        Response.Redirect("shoppingCart.cshtml");
+    }
+}
+
+<html>
+<head>
+    <link rel="stylesheet" href="task1css.css">
+    <link rel="stylesheet" href="css2.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+<body>
+    <table class="layoutTableMain">
+        <tr>
+            <td colspan="4">
+                <div class="headingDiv">
+                    <div class="testDiv">
+                        <a href="mainpage.html" class="noUnderline"><h1>Kenndy's Gift Shop</h1></a>
+                    </div>
+                    <div class="shoppingCartPage">
+                        <a href="shoppingCart.cshtml">
+                            <img src="Images/cart2.png" width="90" height="50" />
+                        </a>
+                    </div>
+                </div>
+            </td>
+        </tr>
+
+        <tr class="spacing2">
+            <td> </td>
+            <td> </td>
+            <td> </td>
+            <td> </td>
+        </tr>
+
+        <tr class="categorySelection">
+            <td colspan="4">
+                <div class="navBar">
+                    <nav>
+                        <a href="StationaryPage.cshtml" class="noUnderline"> STATIONARIES  </a>
+                        <a href="StuffedAnimalsPage.cshtml" class="noUnderline"> STUFFEDANIMALS </a>
+                        <a href="AccessoriesPage.cshtml" class="noUnderline"> ACCESSORIES </a>
+                        <a href="FlowersPage.cshtml" class="noUnderline"> FLOWERS </a>
+                        <a href="MugsPage.cshtml" class="noUnderline"> MUGS </a>
+                    </nav>
+                </div>
+            </td>
+        </tr>
+
+        <tr class="spacing3">
+            <td colspan="4"> </td>
+        </tr>
+
+        <tr class="productShowcase">
+            <td class="productImage borderLeftTopRight" colspan="2">
+
+                <img src="Images/animal1.jpg" class="productShowcaseImage draggable" id="ani1">
+                <figure>
+                    <figcaption class="popup">
+                        <img src="Images/animal1.jpg" class="hiddenProduct">
+                    </figcaption>
+                </figure>
+            </td>
+
+            <td class="productImage borderLeftTopRight" colspan="2">
+                <img src="Images/animal2.jpg" class="productShowcaseImage draggable" id="ani2">
+                <figure>
+                    <figcaption class="popup">
+                        <img src="Images/animal2.jpg" class="hiddenProduct">
+                    </figcaption>
+                </figure>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2" class="productDescTD borderLeftRightBottom">
+                <div class="productDesc">
+                    <span class="productName"> Teddy Bear </span> <br>
+                    The classic teddy bear is back! this makes a good cute gift both for kids
+                    and for loved ones, it also makes a good cuddle toy.
+                </div>
+                <div class="outofstock"> OUT OF STOCK </div>
+            </td>
+
+
+            <td colspan="2" class="productDescTD borderLeftRightBottom">
+                <div class="productDesc">
+                    <span class="productName"> Racoon </span> <br>
+                    This cute racoon doll fur is smooth to the touch and is filled with
+                    soft, sulky material, designed to be very comfortable without giving up
+                    on it's aesthetic.
+                </div>
+            </td>
+        </tr>
+
+        <tr class="productShowcase">
+            <td class="productImage borderLeftTopRight" colspan="2">
+                <img src="Images/animal3.jpg" class="productShowcaseImage draggable" id="ani3">
+                <figure>
+                    <figcaption class="row2ndpopup">
+                        <img src="Images/animal3.jpg" class="hiddenProduct">
+                    </figcaption>
+                </figure>
+            </td>
+
+            
+            <td class="formContainer">
+                <div class="submitDiv drop" style="height: 600px;width: 100%;">
+                    <form method="post">
+                        <label class="formLabel">Enter to shopping cart</label>
+                        <select id="stuffSelected" name="shoppingStuff" class="inputOption drop">
+                            <option value="racoon"> Racoon</option>
+                            <option value="babyYoda"> Baby Yoda </option>
+                            <option value="teddyBear" disabled> Teddy Bear</option>
+                        </select>
+                        <br />
+                        <label class="formLabel">Enter the quantity</label>
+                        <input class="inputOption" type="number" name="quantity" value="1" ; min="1">
+                        <br />
+                        <button class="formSubmit" type="submit">Submit</button>
+                    </form>
+
+                    <div style="font-size:40px;height:400px;width:100%;border:1px solid black" class="drop">
+                        DRAG ME HERE
+                    </div>
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2" class="productDescTD borderLeftRightBottom">
+                <div class="productDesc">
+                    <span class="productName"> Baby Yoda </span> <br>
+                    Baby Yoda which has gone viral on social media for it's cuteness has finally arrived
+                    on our gift shop. Derived from the series "The Mandalorian" this doll will surely fill
+                    your empty cold black heart.
+                </div>
+            </td>
+        </tr>
+
+        <tr class="spacing">
+            <td> </td>
+        </tr>
+
+        <tr>
+            <td class="footerTD" colspan="4">
+                <footer>
+                    <div class="footerDiv1">
+                        <h6> ABOUT US </h6>
+                        <span id="aboutustext">
+                            We are a gift shop based in Singapore, this is not a real gift shop, it's made for an assignment
+                            now im just typing random stuff to make it appear more substantial.
+                        </span>
+                    </div>
+
+                    <div class="footerDiv2">
+                        <a href="https://www.facebook.com/profile.php?id=100009964356227">
+                            <img src="Images/facebook.png" class="facebookIcon">
+                        </a>
+                        <a href="https://www.instagram.com/kenndy.12/">
+                            <img src="Images/instagram.png" class="instagramIcon">
+                        </a>
+                        <a href="https://twitter.com/Justkenndy">
+                            <img src="Images/twitter.png" class="twitterIcon">
+                        </a>
+                        <a href="mailto:justkenndy92@gmail.com">
+                            <img src="Images/email.png" class="emailIcon">
+                        </a>
+                    </div>
+                </footer>
+            </td>
+        </tr>
+    </table>
+    <script type="text/javascript" src="Task2.js"></script>
+    <script type="text/javascript" src="JqueryUI.js"></script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+{
+	"slowanimal" : [
+		{"Category":"Koala Bear", "Speed" : "Very Slow"},
+		{"Category":"Sloth", "Speed" : "Extremely Slow"},
+		{"Category":"Giant Tortose", "Speed" : "Really Slow"}
+	]
+}

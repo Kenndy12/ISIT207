@@ -1,0 +1,23 @@
+
+/* Kenndy 6742014 */
+
+table,tr,td {
+
+	border: 1px solid black;
+	border-collapse: collapse;
+	width:600px;
+	height:200px;
+	font-size:20px;
+	text-align:center;
+
+}
+
+span {
+	
+	font-size:30px;
+}
+
+.highlighted {
+	
+	background-color:yellow;
+}

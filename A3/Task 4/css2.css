@@ -1,0 +1,65 @@
+﻿.shoppingCartTable {
+
+    border:1px solid black;
+    border-collapse:collapse;
+    margin: 0 auto;
+    width:60%;
+    font-size:20px;
+    text-align:center;
+}
+
+.shoppingCartTable tr, .shoppingCartTable td, .shoppingCartTable th {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+.shoppingCartTable tr{
+
+    height:50px;
+}
+
+.submitDiv {
+    width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+.inputOption {
+
+    height:30px;
+    width:160px;
+}
+
+.formLabel {
+
+    font-size:24px;
+}
+
+.fieldSetDelete{
+
+    font-size:20px;
+}
+
+.selectableUL .ui-selecting {
+    background-color: yellow;
+}
+
+.selectableUL .ui-selected {
+    background-color: yellow;
+}
+
+#progressBar{
+
+    width:800px;
+}
+
+.drop{
+
+    border-collapse:collapse;
+}
+
+.formContainer {
+
+    border-collapse:collapse;
+}

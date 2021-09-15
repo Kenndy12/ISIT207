@@ -1,0 +1,134 @@
+﻿<!-- Kenndy 6742014-->
+
+
+@{
+
+    Boolean showOrNot = false;
+    var result = "";
+    string[] userData = null;
+    char[] delimiterChar = { ';' };
+
+    var dataFile = Server.MapPath("~/App_Data/data.txt");
+    if (File.Exists(dataFile)) {
+        userData = File.ReadAllLines(dataFile);
+        if (userData == null) {
+            result = "File is empty";
+        }
+
+    }
+    else {
+        result = "File does not exist";
+    }
+
+    if (IsPost) {
+
+        showOrNot = true;
+        string celebName = Request.Form["celeb"];
+
+        var newData = celebName;
+        var dataPos = Server.MapPath("./App_Data/data.txt");
+
+        if (newData == "JLaw") {
+            var test = userData.GetValue(1);
+
+            int wow = Convert.ToInt32(test);
+            wow++;
+
+            string voteInString = Convert.ToString(wow);
+            userData.SetValue(voteInString, 1);
+            File.WriteAllLines(dataFile, userData);
+        }
+        else if (newData == "Anya") {
+            var test = userData.GetValue(3);
+
+            int wow = Convert.ToInt32(test);
+            wow++;
+
+            string voteInString = Convert.ToString(wow);
+            userData.SetValue(voteInString, 3);
+            File.WriteAllLines(dataFile, userData);
+        }
+        else if (newData == "Johnny") {
+            var test = userData.GetValue(5);
+
+            int wow = Convert.ToInt32(test);
+            wow++;
+
+            string voteInString = Convert.ToString(wow);
+            userData.SetValue(voteInString, 5);
+            File.WriteAllLines(dataFile, userData);
+        }
+
+
+    }
+}
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Vote for your celebrity</title>
+    @if (showOrNot) {
+        <link rel="stylesheet" href="~/Task1CSS.css" />
+    }
+</head>
+<body>
+    <table class="mainWrapper">
+        <tr>
+            <td style="font-size:20px;">Vote for your favourite celebrity : </td>
+        </tr>
+        <tr>
+            <td style="font-size:20px;">
+                <form method="post">
+                    <label for="celebVotes">Choose a celebrity:</label>
+                    <select name="celeb" id="celeb">
+                        <option value="JLaw">Jennifer Lawrence</option>
+                        <option value="Anya">Anya Taylor-Joy</option>
+                        <option value="Johnny">Johnny Depp</option>
+                    </select>
+                    <br><br>
+                    <input type="submit" value="Submit">
+                </form>
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                <div>
+                    <table class="tableTable">
+                        <tbody class="hiddenTBody" style="visibility:hidden">
+                            <tr class="trClass1">
+                                <td>
+                                    Name
+                                </td>
+                                <td>
+                                    Votes
+                                </td>
+                            </tr>
+                            @{
+                                for (int i = 0; i < userData.Length; i += 2) {
+
+                                    int j = i;
+                                    var test = @userData.GetValue(j);
+                                    var test2 = userData.GetValue(j += 1);
+                                    <tr>
+                                        <td> @test </td>
+                                        <td> @test2</td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </td>
+        </tr>
+
+        <tr>
+            <span id="votedFor"> </span>
+        </tr>
+    </table>
+
+</body>
+</html>
